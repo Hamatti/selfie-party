@@ -1,6 +1,4 @@
-# Selfie Party Game Backend
-
-This codebase contains a Python/Flask backend for a selfie party game.
+# Selfie Party Game
 
 ## The Game
 

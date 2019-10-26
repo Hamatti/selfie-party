@@ -1,0 +1,5 @@
+telegram.config
+backend/env
+backend/photos
+frontend/node_modules
+pics.db
