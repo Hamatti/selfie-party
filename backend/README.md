@@ -2,7 +2,7 @@
 
 ## Installation
 
-You need to have [Python 3.7 or newer](https://www.python.org/downloads/) and [virtualenv](https://virtualenv.pypa.io/en/latest/) installed to run this program.
+You need to have [Python 3.7 or newer](https://www.python.org/downloads/), [virtualenv](https://virtualenv.pypa.io/en/latest/) and [sqlite3](https://www.sqlite.org/index.html) installed to run this program.
 
 1. Create a virtualenv and activate it
 
@@ -17,8 +17,20 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Run server
+3. Build database
 
 ```bash
-python server.py
+sqlite3 pics.db < schema.sql
+```
+
+4. Run Telegram listener server
+
+```bash
+python telegram_server.py
+```
+
+5. Run local API
+
+```bash
+python api.py
 ```

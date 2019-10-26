@@ -1,0 +1,1 @@
+create table photos (filename text, user text)
