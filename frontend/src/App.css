@@ -1,3 +1,80 @@
+body {
+  padding: 1rem;
+  background-color: #370080;
+  line-height: 1.5;
+}
+
+.App {
+  padding: 1rem;
+  background-color: white;
+  max-width: 96rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236132ab' fill-opacity='0.06' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+details {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 4rem;
+  text-align: center;
+}
+
+summary > * {
+  display: inline-block;
+}
+
+h1 {
+  margin: 0;
+  font-size: inherit;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
+.Slider-Wrapper > * {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.Slider-Wrapper > * + * {
+  margin-top: 0.5rem;
+}
+
+.Gallery {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--image-size, 18rem), 1fr)
+  );
+  grid-auto-flow: dense;
+  grid-gap: 1rem;
+}
+
+footer {
+  background-color: white;
+  position: sticky;
+  bottom: 0;
+}
+
+.ByFuturice {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.ByFuturice > * {
+  vertical-align: middle;
+}
+
+.ByFuturice > * + * {
+  margin-left: 0.25em;
+}
+
 img {
-  width: 400px;
+  max-width: 100%;
 }
