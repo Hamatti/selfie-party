@@ -35,43 +35,50 @@ function App() {
       });
   }, 1000);
   return (
-    <main className="App" style={{ "--image-size": `${imageSize}rem` }}>
-      <details>
-        <summary>
-          <h1>Selfie Party 🎉</h1>
-        </summary>
-        <div className="Slider-Wrapper">
-          <form>
-            <label for="image-size">Image size</label>
-            <input
-              id="imageSize"
-              name="imageSize"
-              type="range"
-              min="4"
-              max="48"
-              value={imageSize}
-              onChange={ev => {
-                setImageSize(ev.target.value);
-              }}
-            ></input>
-            <output name="imageSizeOutput" id="imageSizeOutput">
-              {imageSize}
-            </output>
-          </form>
+    <>
+      <main className="App" style={{ "--image-size": `${imageSize}rem` }}>
+        <details>
+          <summary>
+            <h1>
+              Selfie Party{" "}
+              <span role="img" aria-label="Tada!">
+                🎉
+              </span>
+            </h1>
+          </summary>
+          <div className="Slider-Wrapper">
+            <form>
+              <label for="image-size">Image size</label>
+              <input
+                id="imageSize"
+                name="imageSize"
+                type="range"
+                min="4"
+                max="48"
+                value={imageSize}
+                onChange={ev => {
+                  setImageSize(ev.target.value);
+                }}
+              ></input>
+              <output name="imageSizeOutput" id="imageSizeOutput">
+                {imageSize}
+              </output>
+            </form>
+          </div>
+        </details>
+        <div className="Gallery">
+          {photos.map((photo, index) => {
+            return (
+              <img
+                // TODO: Make this the filename once the images are unique
+                key={index}
+                alt={photo.description ? photo.description : ""}
+                src={`http://localhost:5000/photo/${photo.filename}`}
+              />
+            );
+          })}
         </div>
-      </details>
-      <div className="Gallery">
-        {photos.map((photo, index) => {
-          return (
-            <img
-              // TODO: Make this the filename once the images are unique
-              key={index}
-              alt={photo.description ? photo.description : ""}
-              src={`http://localhost:5000/photo/${photo.filename}`}
-            />
-          );
-        })}
-      </div>
+      </main>
       <footer>
         <span className="ByFuturice">
           <span>by</span>
@@ -90,7 +97,7 @@ function App() {
           </svg>
         </span>
       </footer>
-    </main>
+    </>
   );
 }
 
