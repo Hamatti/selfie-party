@@ -22,6 +22,10 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
+function removePhoto(filename) {
+  fetch(`http://localhost:5000/photos/delete/${filename}`);
+}
+
 function App() {
   let [photos, setPhotos] = useState([]);
   let [imageSize, setImageSize] = useState(18);
@@ -60,7 +64,7 @@ function App() {
           </form>
         </div>
       </details>
-      <div className="Gallery">
+      <div className="Gallery ">
         {photos.map((photo, index) => {
           return (
             <img
@@ -68,6 +72,8 @@ function App() {
               key={index}
               alt={photo.description ? photo.description : ""}
               src={`http://localhost:5000/photo/${photo.filename}`}
+              data-filename={photo.filename}
+              onClick={ev => removePhoto(ev.target.dataset.filename)}
             />
           );
         })}
