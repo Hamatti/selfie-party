@@ -8,6 +8,8 @@ The posted pictures can then be shown on a bigger screen at the event so people 
 
 ## How to run?
 
+Right now, this is built to be run on a local laptop in development mode. Main reason is to have one less thing worry about when people post photos to it: they don't end up in an online accessible server. They are saved in a local database/filesystem, displayed in a local browser session.
+
 ### Prerequisites
 
 You need to have [Python 3.7 or newer](https://www.python.org/downloads/), [virtualenv](https://virtualenv.pypa.io/en/latest/) and [sqlite3](https://www.sqlite.org/index.html) installed to run this program.
@@ -36,6 +38,12 @@ pip install -r requirements.txt
 ```bash
 cd frontend
 npm install
+```
+
+**Restrict frontend to only run in localhost**
+
+```bash
+source ENV
 ```
 
 ### Initializing database
