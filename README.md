@@ -10,7 +10,7 @@ The posted pictures can then be shown on a bigger screen at the event so people 
 
 ### Prerequisites
 
-Python 3.7
+You need to have [Python 3.7 or newer](https://www.python.org/downloads/), [virtualenv](https://virtualenv.pypa.io/en/latest/) and [sqlite3](https://www.sqlite.org/index.html) installed to run this program.
 
 ### Configuration
 
@@ -18,9 +18,36 @@ To get Telegram connection working, you will need to [create a Telegram bot](htt
 
 After that, you need to create `backend/tasks.md` file with instructions you want your users to see when they start.
 
+**Virtualenv**
+
+```bash
+cd backend
+virtualenv -p python3.7 env
+source env/bin/activate
+```
+
+**Install packages**
+
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+```bash
+cd frontend
+npm install
+```
+
+### Initializing database
+
+```bash
+cd backend
+sqlite3 pics.db < schema.sql
+```
+
 ### Running servers
 
-You will need to run three commands in separate windows:
+You will need to run three commands in separate terminal windows:
 
 **Python API to serve photos**
 
