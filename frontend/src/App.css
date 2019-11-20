@@ -20,7 +20,7 @@ details {
 
 summary {
   cursor: pointer;
-  font-size: 4rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -35,13 +35,18 @@ h1 {
   line-height: 1.25;
 }
 
-.Slider-Wrapper > * {
+.Slider-Wrapper form * {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
-.Slider-Wrapper > * + * {
+.Slider-Wrapper input {
+  max-width: 100%;
+  margin: 0;
+}
+
+.Slider-Wrapper form > * + * {
   margin-top: 0.5rem;
 }
 
@@ -57,9 +62,11 @@ h1 {
 }
 
 footer {
-  background-color: white;
   position: sticky;
   bottom: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: white;
 }
 
 .ByFuturice {
@@ -83,4 +90,15 @@ img {
 .bot-url {
   font-size: 0.3em;
   display: block;
+}
+
+/* Media queries for wider screens */
+@media screen and (min-width: 42em) {
+  summary {
+    font-size: 4rem;
+  }
+
+  .Slider-Wrapper form * {
+    font-size: 1.5rem;
+  }
 }
