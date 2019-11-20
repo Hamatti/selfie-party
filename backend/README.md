@@ -26,7 +26,7 @@ sqlite3 pics.db < schema.sql
 4. Run Telegram listener server
 
 ```bash
-python telegram_server.py
+python server.py
 ```
 
 5. Run local API

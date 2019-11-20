@@ -84,6 +84,12 @@ footer {
 
 img {
   max-width: 100%;
+  cursor: pointer;
+}
+
+.bot-url {
+  font-size: 0.3em;
+  display: block;
 }
 
 /* Media queries for wider screens */

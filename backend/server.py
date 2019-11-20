@@ -17,6 +17,10 @@ config.read('../telegram.config')
 
 token = config['TELEGRAM']['token']
 
+with open('tasks.md', 'r') as f:
+    tasks = f.readlines()
+    WELCOME_MESSAGE = f'{"".join(tasks)}'
+
 
 def getImage(update, context):
     """Download image sent by user"""
@@ -24,7 +28,6 @@ def getImage(update, context):
     data = update.to_dict()
 
     try:
-        update.message.reply_text('Hello')
         photo = data['message']['photo'][-1]
         file_id = photo['file_id']
         logging.debug(f'Step 1: file_id {file_id}')
@@ -44,10 +47,7 @@ def getImage(update, context):
             photo_resp.raw.decode_content = True
             shutil.copyfileobj(photo_resp.raw, local_file)
             del photo_resp
-
-        update.message.reply_text(f'Photo {url} found!')
     except:
-        update.message.reply_text("No photo found in message")
         return
 
     # Save image to db with user id
@@ -57,9 +57,14 @@ def getImage(update, context):
 
     conn = sqlite3.connect('pics.db')
     cur = conn.cursor()
-    cur.execute(f'INSERT INTO photos values ("{image_name}", "{user}")')
+    cur.execute(
+        f'INSERT INTO photos (filename, user, display) values ("{image_name}", "{user}", 1)')
     conn.commit()
     conn.close()
+
+
+def welcome(update, context):
+    update.message.reply_text(WELCOME_MESSAGE)
 
 
 def error(update, context):
@@ -79,6 +84,9 @@ def main():
     dp = updater.dispatcher
 
     dp.add_handler(MessageHandler(Filters.photo, getImage))
+    dp.add_handler(CommandHandler("tasks", welcome))
+    dp.add_handler(CommandHandler("start", welcome))
+    dp.add_handler(CommandHandler("help", welcome))
 
     # log all errors
     dp.add_error_handler(error)

@@ -22,6 +22,10 @@ function useInterval(callback, delay) {
   }, [delay]);
 }
 
+function removePhoto(filename) {
+  fetch(`http://localhost:5000/photos/delete/${filename}`);
+}
+
 function App() {
   let [photos, setPhotos] = useState([]);
   let [imageSize, setImageSize] = useState(18);
@@ -45,6 +49,10 @@ function App() {
                 🎉
               </span>
             </h1>
+            <span class="bot-url">
+              Start at{" "}
+              <a href="http://t.me/AtheneParty_bot">t.me/AtheneParty_bot</a>
+            </span>
           </summary>
           <div className="Slider-Wrapper">
             <form>
@@ -74,6 +82,8 @@ function App() {
                 key={index}
                 alt={photo.description ? photo.description : ""}
                 src={`http://localhost:5000/photo/${photo.filename}`}
+                data-filename={photo.filename}
+                onClick={ev => removePhoto(ev.target.dataset.filename)}
               />
             );
           })}

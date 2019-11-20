@@ -23,9 +23,24 @@ def get_photos():
     conn.row_factory = dict_factory
 
     cur = conn.cursor()
-    cur.execute('SELECT * FROM photos limit 30')
+    cur.execute(
+        'SELECT * FROM photos WHERE display = 1 ORDER BY id DESC LIMIT 30')
     photos = cur.fetchall()
     return json.dumps(photos)
+
+
+@app.route('/photos/delete/<string:filename>')
+def delete_photo(filename):
+    print(f"Deleting photo {filename}")
+    conn = sqlite3.connect('pics.db')
+    conn.row_factory = dict_factory
+
+    cur = conn.cursor()
+    cur.execute(
+        f'UPDATE photos SET display = 0 WHERE filename = ?', (filename,))
+    photos = cur.fetchall()
+    conn.commit()
+    return json.dumps('OK')
 
 
 @app.route('/photo/<path:path>')
