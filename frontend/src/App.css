@@ -79,3 +79,8 @@ img {
   max-width: 100%;
   cursor: pointer;
 }
+
+.bot-url {
+  font-size: 0.3em;
+  display: block;
+}

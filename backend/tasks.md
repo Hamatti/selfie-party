@@ -11,4 +11,6 @@ Take a selfie with someone who:
 5. Is an alumnus
 6. Is having a great time
 
+Then send that selfie to me! After that, it will be posted on the main screen for the party people to see.
+
 If you want to see this message again, send me a message "/help" (without quotes) and I'll tell you again.

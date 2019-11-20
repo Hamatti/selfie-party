@@ -43,6 +43,10 @@ function App() {
       <details>
         <summary>
           <h1>Selfie Party 🎉</h1>
+          <span class="bot-url">
+            Start at{" "}
+            <a href="http://t.me/AtheneParty_bot">t.me/AtheneParty_bot</a>
+          </span>
         </summary>
         <div className="Slider-Wrapper">
           <form>
